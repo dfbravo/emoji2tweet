@@ -1,4 +1,6 @@
-# THIS SCRIPT HAS BEEN MODIFIED. dfbravo Nov 15, 2016. ORIGINAL in the link
+# THIS SCRIPT HAS BEEN MODIFIED. dfbravo Nov 15, 2016. 
+# Modified again by dfbravo June, 24, 2020.
+# ORIGINAL in the link
 # Source: https://gist.github.com/bonzanini/af0463b927433c73784d#file-twitter_stream_download-py
 
 import tweepy
@@ -16,30 +18,29 @@ import traceback
 
 def get_parser():
     """Get parser for command line arguments."""
-    parser = argparse.ArgumentParser(description="Twitter Downloader")
-    parser.add_argument("-i",
-                        "--id",
+    parser = argparse.ArgumentParser(description="This script downloads tweets within a bounding box.")
+    parser.add_argument("--id",
                         dest="index",
                         type=int,
-                        help="Index of file name")
-    parser.add_argument("-d",
-                        "--data-dir",
+                        help="Integer used to differentiate files. Appended at the end of the filename. stream_<label><id>.json")
+    parser.add_argument("-o",
+                        "--outut-dir",
                         dest="data_dir",
                         help="Output/Data Directory")
     parser.add_argument("-r",
-                        "--restart",
-                        dest="restart",
-                        help="Restart on error",
+                        "--retry",
+                        dest="retry",
+                        help="Retry on error. Sometimes the connection is lost. ",
                         action="store_true")
     parser.add_argument("-l",
                         "--limit",
                         dest="limit",
-                        help="Limit repeats",
+                        help="Number of retry attempts",
                         type=int)
     parser.add_argument("-n",
                         "--name",
                         dest="name",
-                        help="Label used to differentiate files",
+                        help="Label used to differentiate files stream_<label><id>.json",
                         default="generic")
     return parser
 
@@ -101,8 +102,8 @@ def parse(cls, api, raw):
 if __name__ == '__main__':
     parser = get_parser()
     args = parser.parse_args()
-    auth = OAuthHandler(config.consumer_key, config.consumer_secret)
-    auth.set_access_token(config.access_token, config.access_secret)
+    auth = OAuthHandler(twitter_stream_config.consumer_key, twitter_stream_config.consumer_secret)
+    auth.set_access_token(twitter_stream_config.access_token, twitter_stream_config.access_secret)
     api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True,retry_count=3, retry_delay=5,retry_errors=set([401, 404, 500, 503]))
 
     i = args.index
@@ -124,7 +125,7 @@ if __name__ == '__main__':
             time.sleep(900)
             print "Done"
 
-        if args.restart:
+        if args.retry:
             i += 1
         else:
             break

@@ -80,9 +80,11 @@ if __name__ == '__main__':
             if 'retweeted_status' in raw_data:
                 continue
             tokens = twokenize.tokenizeRawTweetText(raw_data['text'])
-            filtered_tokens, emojis = filter_tokens_emojis(tokens)
-            output_data.append([" ".join(filtered_tokens), " ".join(emojis),
-                len(filtered_tokens), len(emojis)])
+            filtered_tokens, emojis_raw = filter_tokens_emojis(tokens)
+            emojis_unq = sorted(set(emojis_raw))
+            output_data.append([" ".join(filtered_tokens), " ".join(emojis_raw),
+                " ".join(emojis_unq), len(filtered_tokens), 
+                len(emojis_raw), len(emojis_unq)])
 
-    df = pd.DataFrame(output_data, columns=['tweet_text', 'emojis', 'n_tokens', 'n_emojis'])
+    df = pd.DataFrame(output_data, columns=['tweet_text', 'emojis_raw', 'emojis_unq', 'n_tokens', 'n_emojis_raw', 'n_emojis_unq'])
     df.to_csv(args.outfile)
