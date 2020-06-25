@@ -1,4 +1,4 @@
-#Collecting and Preprocessing Twitter Data
+# Collecting and Preprocessing Twitter Data
 
 ## Downloading Tweets
 I used the tweepy module to interface with the Twitter Stream API. The result are json files, one for each attempt to download, which contain all the data obtained from the Twitter API. Below I extract the tweet text and ignore the metadata.
