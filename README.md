@@ -8,5 +8,5 @@ The project is broken down into 4 main parts:
 - [Collecting Data from Twitter and Tokenizing Tweets](twitter_data_collection)
 - [Generating word2vec Embedings on the Twitter Data](word2vec)
 - [Exploratory Data Analysis](notebooks/EDA.ipynb)
-- [Defining and Training the Model](notebook/emoji2tweet_training.ipynb)
-- [Evaluating the Model](notebook/emoji2tweet_evaluation.ipynb)
+- [Defining and Training the Model](notebooks/emoji2tweet_training.ipynb)
+- [Evaluating the Model](notebooks/emoji2tweet_evaluation.ipynb)
