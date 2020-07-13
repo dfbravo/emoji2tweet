@@ -2,9 +2,9 @@
 
 I started this capstone project for the BrainStation Data Science Spring 2020.
 
-The capstone report submission can be found [here](Emoji2Tweet_Capstone_Report_Submission.pdf).
+The capstone report submission can be found [here](Emoji2Tweet_Capstone_Report_Submission.pdf). Please note that the GitHub PDF Preview might not work properly.
 
-The project is broken down into 4 main parts:
+The project is broken down into 5 main parts:
 - [Collecting Data from Twitter and Tokenizing Tweets](twitter_data_collection)
 - [Generating word2vec Embedings on the Twitter Data](word2vec)
 - [Exploratory Data Analysis](notebooks/EDA.ipynb)
