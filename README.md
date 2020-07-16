@@ -1,10 +1,10 @@
-# emoji2tweet: Generate Tweets from Just Emojis
+# Emoji2Tweet: Generate Tweets from Just Emojis
 
-I started this capstone project for the BrainStation Data Science Spring 2020.
+This is my capstone project for BrainStation Data Science Spring 2020. 
+A report summarizing the project be found [here](Emoji2Tweet_Capstone_Report_Submission.pdf). 
+A video overview of the project can be found [here](https://www.loom.com/share/a8d8b516945d4666b29cd45e8a72ac6f)
 
-The capstone report submission can be found [here](Emoji2Tweet_Capstone_Report_Submission.pdf). Please note that the GitHub PDF Preview might not work properly.
-
-The project is broken down into 5 main parts:
+The code is broken down into 5 main sections:
 - [Collecting Data from Twitter and Tokenizing Tweets](twitter_data_collection)
 - [Generating word2vec Embedings on the Twitter Data](word2vec)
 - [Exploratory Data Analysis](notebooks/EDA.ipynb)
